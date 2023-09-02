@@ -8,6 +8,7 @@
       defer
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.0/dist/cdn.min.js"
     ></script>
+    <link rel="icon" href="./../img/fav.png">
     <script src="https://unpkg.com/htmx.org@1.9.5"></script>
 
     <script src="https://unpkg.com/htmx.org/dist/ext/json-enc.js"></script>
@@ -29,7 +30,7 @@
         <h1 class="textAlignCenter h1_index">FGG TRADING</h1>
 
         <h2 class="textAlignCenter">Login</h2>
-        <form class="DFCW" method="POST">
+        <form class="DFCW" hx-post="/login" method="POST" hx-swap="outerHTML">
           <div class="F51">
             <div class="F51" x-show="!Account">
               <label for="mail">mail:</label>
@@ -58,7 +59,7 @@
               x-show="Account"
               class="TACWM"
               hx-post="/login"
-              hx-target="form"
+              hx-swap="outerHTML"
               hx-ext="json-enc"
             >
               Login
@@ -84,7 +85,6 @@
         </form>
         <div
           id="error"
-          hx-get="/errorRegister"
           
           
         ></div>
