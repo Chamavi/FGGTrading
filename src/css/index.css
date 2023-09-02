@@ -1,0 +1,85 @@
+/* class */
+.styleGroup {
+  border: 2px solid white;
+  border-radius: 30px;
+  background-color: #1e171e51;
+  align-content: flex-start;
+
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+  width: 500px;
+}
+.h1_index {
+  margin: 0;
+  flex-basis: 100%;
+  margin-bottom: 10%;
+  color: #9700a8;
+}
+.subMain {
+  height: 100%;
+}
+
+/* element */
+
+* {
+  font-family: "Fredoka", sans-serif;
+}
+html,
+body {
+  height: 100%;
+  background-color: #facfff;
+  width: 100%;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  font-size: 2rem;
+  width: 100px;
+  display: block;
+  margin-right: 10%;
+  margin-left: 10%;
+  color: aqua;
+}
+
+h2 {
+  flex-basis: 51%;
+}
+/* responsive */
+@media screen and (max-width: 1511px) {
+  main {
+    order: 0;
+    flex-basis: 70%;
+  }
+  .respon {
+    order: 1;
+  }
+}
+
+/* bibliotheque */
+.height80 {
+  height: 80%;
+}
+
+.textAlignCenter {
+  text-align: center;
+}
+
+.TACWM {
+  margin-left: 50%;
+  transform: translate(-50%);
+}
+
+.DFCW {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.mAuto {
+  margin: 0 auto;
+}
+
+.F51 {
+  flex-basis: 51%;
+}

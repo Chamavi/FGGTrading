@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log-in</title>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.0/dist/cdn.min.js"
+    ></script>
+    <script src="https://unpkg.com/htmx.org@1.9.5"></script>
+
+    <script src="https://unpkg.com/htmx.org/dist/ext/json-enc.js"></script>
+
+    <link href="/index.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="DFCW">
+    <aside class="styleGroup respon DFCW" aria-label="FAQ">
+      <a href="" class="a_index">F.A.Q</a>
+    </aside>
+    <main x-data="{ Account: true}">
+      <div class="styleGroup DFCW mAuto subMain" id="subMain">
+        <h1 class="textAlignCenter h1_index">FGG TRADING</h1>
+
+        <h2 class="textAlignCenter">Login</h2>
+        <form class="DFCW" method="POST">
+          <div class="F51">
+            <div class="F51" x-show="!Account">
+              <label for="mail">mail:</label>
+              <input type="email" name="mail" required />
+            </div>
+            <label for="username">Username/Mail:</label>
+            <input type="text" name="username" required />
+          </div>
+          <div class="F51">
+            <label for="password">Password:</label>
+            <input type="password" name="password" required />
+          </div>
+          <div class="F51">
+            <button @click="Account = false" x-show="Account">
+              Cree un compte
+            </button>
+          </div>
+
+          <div class="F51" x-show="!Account">
+            <label for="password">Retype-Password:</label>
+            <input type="password" name="password" required />
+          </div>
+          <div class="F51">
+            <button
+              type="submit"
+              x-show="Account"
+              class="TACWM"
+              hx-post="/login"
+              hx-target="form"
+              hx-ext="json-enc"
+            >
+              Login
+            </button>
+            <button
+              type="submit"
+              x-show="!Account"
+              class="TACWM"
+              hx-post="/register"
+              hx-ext="json-enc"
+              hx-target="#error"
+              hx-swap="innerHTML"
+
+            >
+              Register
+            </button>
+          </div>
+          <div class="F51">
+            <button  @click="Account = true" x-show="!Account">
+              J'ai deja un compte
+            </button>
+          </div>
+        </form>
+        <div
+          id="error"
+          hx-get="/errorRegister"
+          
+          
+        ></div>
+      </div>
+    </main>
+    <aside class="styleGroup DFCW" aria-label="FAQ">
+      <a href="" class="textAlignCenter">PRICE</a>
+    </aside>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "fggtrading",
+  "module": "index.js",
+  "type": "module",
+  "devDependencies": {
+    "bun-types": "latest",
+    "nodemon": "^3.0.1"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "scripts": {
+    "dev": "bun run src/js/index.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3"
+  }
+}
