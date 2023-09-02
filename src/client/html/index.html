@@ -8,7 +8,7 @@
       defer
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.0/dist/cdn.min.js"
     ></script>
-    <link rel="icon" href="./../img/fav.png">
+    <link rel="icon" href="./../img/fav.png" />
     <script src="https://unpkg.com/htmx.org@1.9.5"></script>
 
     <script src="https://unpkg.com/htmx.org/dist/ext/json-enc.js"></script>
@@ -25,12 +25,12 @@
     <aside class="styleGroup respon DFCW" aria-label="FAQ">
       <a href="" class="a_index">F.A.Q</a>
     </aside>
-    <main x-data="{ Account: true}">
+    <main x-data="{ Account: true, error: '' }">
       <div class="styleGroup DFCW mAuto subMain" id="subMain">
         <h1 class="textAlignCenter h1_index">FGG TRADING</h1>
 
         <h2 class="textAlignCenter">Login</h2>
-        <form class="DFCW" hx-post="/login" method="POST" hx-swap="outerHTML">
+        <form id="loginForm" class="DFCW" hx-post="/login" method="POST" hx-swap="outerHTML">
           <div class="F51">
             <div class="F51" x-show="!Account">
               <label for="mail">mail:</label>
@@ -61,6 +61,7 @@
               hx-post="/login"
               hx-swap="outerHTML"
               hx-ext="json-enc"
+              hx-target="body"
             >
               Login
             </button>
@@ -70,28 +71,33 @@
               class="TACWM"
               hx-post="/register"
               hx-ext="json-enc"
-              hx-target="#error"
+              hx-target="body"
               hx-swap="innerHTML"
-
             >
               Register
             </button>
           </div>
           <div class="F51">
-            <button  @click="Account = true" x-show="!Account">
+            <button @click="Account = true" x-show="!Account">
               J'ai deja un compte
             </button>
           </div>
         </form>
-        <div
-          id="error"
-          
-          
-        ></div>
+        <div x-text="error"></div>
       </div>
     </main>
     <aside class="styleGroup DFCW" aria-label="FAQ">
       <a href="" class="textAlignCenter">PRICE</a>
     </aside>
   </body>
+  <script>
+    document.getElementById('loginForm').addEventListener('htmx:afterOnLoad', function(evt) {
+      var response = JSON.parse(evt.detail.xhr.responseText);
+      if (response.status === 'success') {
+        window.location.href = response.message;
+      } else if (response.status === 'error') {
+        Alpine.store('Account').error = response.message;
+      }
+    });
+  </script>
 </html>
