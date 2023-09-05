@@ -41,12 +41,40 @@ const server = Bun.serve({
           return new Response(Bun.file("./src/client/html/index.html"), {
             headers: {
               "Content-Type": "text/html",
-              "HX-Trigger-Data": JSON.stringify({error : await error})
+              "HX-Trigger-Data": JSON.stringify({ error: await error })
             },
           });
         }
       case "/img/fav.png":
         return new Response(Bun.file("./src/client/img/fav.png"), {
+          headers: {
+            "Content-Type": "image/png",
+            "Cache-Control": "max-age=31536000",
+          },
+        });
+        case "/img/lune.png":
+        return new Response(Bun.file("./src/client/img/lune.png"), {
+          headers: {
+            "Content-Type": "image/png",
+            "Cache-Control": "max-age=31536000",
+          },
+        });
+        case "/img/vOn.png":
+          return new Response(Bun.file("./src/client/img/vOn.png"), {
+            headers: {
+              "Content-Type": "image/png",
+              "Cache-Control": "max-age=31536000",
+            },
+          });
+          case "/img/vOff.png":
+            return new Response(Bun.file("./src/client/img/vOff.png"), {
+              headers: {
+                "Content-Type": "image/png",
+                "Cache-Control": "max-age=31536000",
+              },
+            });
+        case "/img/soleil.png":
+        return new Response(Bun.file("./src/client/img/soleil.png"), {
           headers: {
             "Content-Type": "image/png",
             "Cache-Control": "max-age=31536000",

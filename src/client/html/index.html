@@ -1,103 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Log-in</title>
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.0/dist/cdn.min.js"
-    ></script>
-    <link rel="icon" href="./../img/fav.png" />
-    <script src="https://unpkg.com/htmx.org@1.9.5"></script>
 
-    <script src="https://unpkg.com/htmx.org/dist/ext/json-enc.js"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Log-in</title>
+  <link rel="icon" href="./../img/fav.png" />
+  <link href="/index.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/htmx.org@1.9.5"></script>
+  <script src="https://unpkg.com/htmx.org/dist/ext/json-enc.js"></script>
+  <script src="//unpkg.com/alpinejs" defer></script>
+</head>
 
-    <link href="/index.css" rel="stylesheet" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body class="DFCW">
-    <aside class="styleGroup respon DFCW" aria-label="FAQ">
-      <a href="" class="a_index">F.A.Q</a>
-    </aside>
-    <main x-data="{ Account: true, error: '' }">
-      <div class="styleGroup DFCW mAuto subMain" id="subMain">
-        <h1 class="textAlignCenter h1_index">FGG TRADING</h1>
+<body id="body" class="DFCC DN ui-light-theme" x-data="{ Account: false, mdp: false }">
 
-        <h2 class="textAlignCenter">Login</h2>
-        <form id="loginForm" class="DFCW" hx-post="/login" method="POST" hx-swap="outerHTML">
-          <div class="F51">
-            <div class="F51" x-show="!Account">
-              <label for="mail">mail:</label>
-              <input type="email" name="mail" required />
-            </div>
-            <label for="username">Username/Mail:</label>
-            <input type="text" name="username" required />
-          </div>
-          <div class="F51">
-            <label for="password">Password:</label>
-            <input type="password" name="password" required />
-          </div>
-          <div class="F51">
-            <button @click="Account = false" x-show="Account">
-              Cree un compte
-            </button>
-          </div>
+  <main class="styleGroup textAlignCenter mAuto" id="">
+    <button id="btnMode" class="mode"><img id="modeImage" alt="button for switch mode" src="./../img/lune.png"></button>
+    <h1 class="white textAlignCenter h1_index">FGG <br> TRADING</h1>
 
-          <div class="F51" x-show="!Account">
-            <label for="password">Retype-Password:</label>
-            <input type="password" name="password" required />
-          </div>
-          <div class="F51">
-            <button
-              type="submit"
-              x-show="Account"
-              class="TACWM"
-              hx-post="/login"
-              hx-swap="outerHTML"
-              hx-ext="json-enc"
-              hx-target="body"
-            >
-              Login
-            </button>
-            <button
-              type="submit"
-              x-show="!Account"
-              class="TACWM"
-              hx-post="/register"
-              hx-ext="json-enc"
-              hx-target="body"
-              hx-swap="innerHTML"
-            >
-              Register
-            </button>
-          </div>
-          <div class="F51">
-            <button @click="Account = true" x-show="!Account">
-              J'ai deja un compte
-            </button>
-          </div>
-        </form>
-        <div x-text="error"></div>
+    <h2 class="white textAlignCenter" x-show="Account">Login</h2>
+    <h2 class="white textAlignCenter" x-show="!Account">Register</h2>
+    <form id="loginForm " class="" method="POST">
+      <label class="white textAlignCenter" for="mail" x-show="!Account">Mail</label>
+      <input class="border TACWM" type="email" name="mail" required x-show="!Account" />
+      <label class="white textAlignCenter" for="username" x-show="!Account">Username</label>
+      <label class="white textAlignCenter" for="username" x-show="Account">Username/Mail</label>
+      <input class="border TACWM" type="text" name="username" required />
+      <div class=" textAlignCenter    ">
+        <label style="margin: 1%;
+        display: block;
+      " class="white textAlignCenter" for="password">Password</label>
+        <div class="DFCCW TACWMNT">
+          <input class="border TACWMNT" type="password" name="password" required />
+          <button id="btnMDP" class="RTACWM mode" @click="mdp = !mdp">
+            <img x-show="!mdp" src="./../img/vOn.png" alt="">
+            <img x-show="mdp" src="./../img/vOff.png" alt="">
+          </button>
+        </div>
       </div>
-    </main>
-    <aside class="styleGroup DFCW" aria-label="FAQ">
+
+      <label class=" white textAlignCenter" for="password" x-show="!Account">Retype-Password</label>
+
+      <input class="border TACWM" type="password" x-show="!Account" name="password" required />
+
+      <button @click="Account = false" class="TACWM" x-show="Account">
+        Cree un compte
+      </button>
+      <button @click="Account = true" class="TACWM" x-show="!Account">
+        Deja un compte
+      </button>
+      <input type="submit" x-show="Account" class="TACWM" hx-post="/login" hx-swap="outerHTML" hx-ext="json-enc"
+        hx-target="body" value="Login" />
+      <input type="submit" x-show="!Account" class="TACWM" hx-post="/register" hx-ext="json-enc" hx-target="body"
+        hx-swap="innerHTML" value=" Register" />
+    </form>
+    <div x-text="error"></div>
+    <div class="">
+      <a href="" class="textAlignCenter">F.A.Q</a>
       <a href="" class="textAlignCenter">PRICE</a>
-    </aside>
-  </body>
-  <script>
-    document.getElementById('loginForm').addEventListener('htmx:afterOnLoad', function(evt) {
-      var response = JSON.parse(evt.detail.xhr.responseText);
-      if (response.status === 'success') {
-        window.location.href = response.message;
-      } else if (response.status === 'error') {
-        Alpine.store('Account').error = response.message;
+    </div>
+  </main>
+
+
+</body>
+<script>
+  window.addEventListener("load", (event) => {
+    document.getElementById("body").classList.remove("DN");
+  });
+  /* document
+     .getElementById("loginForm")
+     .addEventListener("htmx:afterOnLoad", function (evt) {
+       var response = JSON.parse(evt.detail.xhr.responseText);
+       if (response.status === "success") {
+         window.location.href = response.message;
+       } else if (response.status === "error") {
+         Alpine.store("Account").error = response.message;
+       }
+     });*/
+  var btn = document.getElementById("btnMode");
+  // add event listener for the button, for action "click"
+  btn.addEventListener("click", switchTheme);
+  function switchTheme() {
+    if (document.getElementById("body").classList.contains("ui-dark-theme")) {
+      document.getElementById("body").classList.replace("ui-dark-theme", "ui-light-theme")
+      document.getElementById("modeImage").src = "./../img/lune.png"
+    } else {
+      document.getElementById("body").classList.replace("ui-light-theme", "ui-dark-theme")
+      document.getElementById("modeImage").src = "./../img/soleil.png"
+    }
+
+  }
+
+  var btn = document.getElementById("btnMDP");
+  // add event listener for the button, for action "click"
+  btn.addEventListener("click", viewMDP);
+  function viewMDP() {
+    const input = document.getElementsByName("password");
+    console.log(input);
+    for (const element of input) {
+      console.log(element)
+      if (element.getAttribute("type") === "password") {
+        element.setAttribute("type", "text");
+      } else {
+        element.setAttribute("type", "password");
       }
-    });
-  </script>
+    }
+
+
+
+  }
+</script>
+
 </html>

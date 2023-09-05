@@ -10,7 +10,9 @@
     "typescript": "^5.0.0"
   },
   "scripts": {
-    "dev": "bun run src/js/index.js"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
