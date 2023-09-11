@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Log-in</title>
+  <link rel="icon" href="./../img/fav.png" />
+  <link href="/index.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&display=swap" rel="stylesheet" />
+  <script src="//unpkg.com/alpinejs" defer></script>
+  <script src="./login.js"></script>
+</head>
+
+<body id="body" class="DFCC DN ui-light-theme" x-data="{ Account: false, mdp: false }">
+  <main class="styleGroup textAlignCenter mAuto" id="">
+    <button id="btnMode" class="mode"><img id="modeImage" alt="button for switch mode" src="./../img/lune.png"></button>
+    <h1 class="white textAlignCenter h1_index">FGG <br> TRADING</h1>
+
+    <h2 class="white textAlignCenter" x-show="Account">Login</h2>
+    <h2 class="white textAlignCenter" x-show="!Account">Register</h2>
+    <form id="loginForm " class="" method="POST">
+      <label id="mail" class="white textAlignCenter" for="mail" x-show="!Account">Mail</label>
+      <input  class="border TACWM" type="email" name="mail" required x-show="!Account" />
+      <label id="username" class="white textAlignCenter" for="username" x-show="!Account">Username</label>
+      <label id="username2" class="white textAlignCenter" for="username2" x-show="Account">Username/Mail</label>
+      <input class="border TACWM" type="text" name="username" required />
+      <div class=" textAlignCenter    ">
+        <label  id="password" style="margin: 1%;
+        display: block;
+      " class="white textAlignCenter" for="password">  <button id="btnMDP" class="mode" @click="mdp = !mdp">
+            <img class="dark" id="vOn" x-show="!mdp" src="./../img/vOn.png" alt="">
+            <img class="dark" id="vOff" x-show="mdp" src="./../img/vOff.png" alt="">
+          </button>Password</label>
+          <input class="border TACWM" type="password" name="password" required />
+      </div>
+
+      <label id="password2" class=" white textAlignCenter" for="password2" x-show="!Account">Retype-Password</label>
+
+      <input class="border TACWM" type="password2" x-show="!Account" name="password2" required />
+      <p style="color: red;" id="error"></p>
+
+      <input id="login" type="submit" x-show="Account" class="TACWM" value="Login" />
+      <input id="register" type="submit" x-show="!Account" class="TACWM" value=" Register" />
+
+      <button @click="Account = false" class="TACWM" x-show="Account">
+        Cree un compte
+      </button>
+      <button @click="Account = true" class="TACWM" x-show="!Account">
+        Deja un compte
+      </button>
+    </form>
+    <div class="">
+      <a href="" class="textAlignCenter">F.A.Q</a>
+      <a href="" class="textAlignCenter">PRICE</a>
+    </div>
+  </main>
+
+  <script type="module" src="./../js/index.js"></script>
+
+</body>
+
+
+
+</html>

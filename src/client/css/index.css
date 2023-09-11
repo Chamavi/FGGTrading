@@ -1,241 +1,220 @@
-:root{
-  --color-primary: #ccdcf0 ;
+:root {
+  --color-primary: #ccdcf0;
   --color-second: #33230F;
   --color-text-p: #111111;
-  --color-text-s: #EEEEEE;
-  .c-theme-switch {
-    .c-theme-switch__toggle {
-      transform: translateX(0px);
-    }
-  }
+  --color-text-s: #EEEEEE
 }
 
 .ui-light-theme {
-  --color-primary: #ccdcf0 ;
+  --color-primary: #ccdcf0;
   --color-second: #33230F;
   --color-text-p: #111111;
-  --color-text-s: #EEEEEE;
-  .c-theme-switch {
-    .c-theme-switch__toggle {
-      transform: translateX(0px);
-    }
-  }
+  --color-text-s: #EEEEEE
 }
 
 .ui-dark-theme {
-  --color-primary: #33230F ;
+  --color-primary: #33230F;
   --color-second: #ccdcf0;
   --color-text-p: #EEEEEE;
-  --color-text-s: #111111; 
-
- 
+  --color-text-s: #111111;
+  
+   
 }
 
 
-
-/* class */
 .styleGroup {
-  border: 2px solid white;
-  border-radius: 30px;
-
-  -webkit-backdrop-filter: blur(15px);
-  backdrop-filter: blur(15px);
-  display: inline-block;
-  box-sizing: border-box;
   -moz-box-sizing: border-box;
+  -webkit-backdrop-filter: blur(15px);
   -webkit-box-sizing: border-box;
+  backdrop-filter: blur(15px);
+  border: 2px solid #fff;
+  border-radius: 30px;
+  box-sizing: border-box;
+  display: inline-block
 }
-
-
-
-
-/* element */
 
 * {
-  font-family: "Fredoka", sans-serif;
+  font-family: Fredoka, sans-serif
 }
 
-html,
-body {
-  height: 100%;
+body,
+html {
   background-color: var(--color-primary);
-  overflow: hidden; 
-  width: 100%;
+  height: 100%;
   margin: 0;
-  transition: 500ms background ease;
+  overflow: hidden;
+  transition: .5s background ease;
+  width: 100%
 }
 
 .DFCC {
-  display: flex;
-  justify-content: center;
   align-items: center;
+  display: flex;
   flex-wrap: wrap;
+  justify-content: center
 }
 
 .DFCCW {
+  align-items: center;
   display: flex;
-  justify-content: center;
-  align-items: center;  
   flex-wrap: nowrap;
+  justify-content: center
 }
-
-
 
 a {
-  text-decoration: underline;
-  font-size: 2rem;
-  display: block;
   color: var(--color-second);
+  display: block;
+  font-size: 2rem;
+  text-decoration: underline
 }
 
-form{
+form {
+  border-bottom: #eee 4px solid;
+  border-top: #eee 4px solid;
   height: 400px;
-  width: 400px;
   margin-right: 0 !important;
-  border-top: #EEEEEE 4px solid;
-  border-bottom: #EEEEEE 4px solid;
+  width: 400px
 }
 
-
-h2{
+h2 {
   margin-bottom: 1%;
-  padding-bottom: 1%;
+  padding-bottom: 1%
 }
-
-
-
-
 
 h1,
 h2 {
   display: block;
-  margin: 0!important;
-
+  margin: 0 !important
 }
 
 main {
-  padding: 1%;
-  width: 400px !important;
   height: 700px;
-  padding-left: 0!important;
- 
+  padding: 1%;
+  padding-left: 0 !important;
+  width: 400px !important
 }
 
 main>* {
   margin: 1%;
-  width: 380px;
-  margin-left: 10px!important;
+  margin-left: 10px !important;
+  width: 380px
 }
 
 form>* {
-  margin: 1%;
   display: block;
+  margin: 1%
 }
 
 @keyframes pageFadeIn {
   from {
-    opacity: 0;
+    opacity: 0
   }
 
   to {
-    opacity: 1;
+    opacity: 1
   }
 }
 
 body {
-  opacity: 0;
   animation: pageFadeIn ease-in 1;
+  animation-duration: .3s;
   animation-fill-mode: forwards;
-  animation-duration: 0.3s;
+  opacity: 0;
   animation-delay: .1s
 }
 
-/* bibliotheque */
 .height80 {
-  height: 80%;
+  height: 80%
 }
 
 .textAlignCenter {
-  text-align: center;
+  text-align: center
 }
 
 .TACWM {
   margin-left: 50%;
-  transform: translate(-50%);
+  transform: translate(-50%)
 }
 
 .TACWMNT {
   margin-left: 50%;
-  transform: translate(-20%);
+  transform: translate(-20%)
 }
 
 .RTACWM {
-  margin-right: 50%;
-  transform: translate(-50% );
   display: inline-block;
+  margin-right: 50%;
+  transform: translate(-50%)
 }
 
 .mAuto {
-  margin: 0 auto;
+  margin: 0 auto
 }
 
-
 .DN {
-  display: none;
+  display: none
 }
 
 .form1 {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: nowrap
 }
 
 .white {
-  color: var(--color-text-p);
+  color: var(--color-text-p)
 }
-
-
 
 button,
 input[type=submit] {
-  padding: 3%;
-  border: 2px solid white;
   background-color: var(--color-second);
-  color: var(--color-primary);
+  border: 2px solid #fff;
   border-radius: 30px;
+  color: var(--color-primary);
   cursor: pointer;
+  padding: 3%
 }
 
 .border {
-  border: 2px solid white;
+  border: 2px solid #fff;
   border-radius: 30px;
-  padding: .4em;
-
+  padding: .4em
 }
 
-.borderTop{
-  margin-top: 2%;
+.borderTop {
+  border-top: #eee 4px solid;
   margin-bottom: 1%;
-  border-top: #EEEEEE 4px solid;
-
+  margin-top: 2%
 }
 
+.c-theme-switch .c-theme-switch__toggle,
+.ui-light-theme {
+  transform: translateX(0)
+}
 
-
-.ui-light-theme, .c-theme-switch .c-theme-switch__toggle {
-    transform: translateX(0px);
-  }
-
-.mode{
-  padding: 0px;
+.mode {
   background-color: var(--color-primary);
   border: none;
-  width: 24px;
-  
+  padding: 0;
+  width: 24px
 }
 
-img{
-  width: 24px;
+img {
   height: 24px;
+  width: 24px;
 }
 
+#btnMDP {
+  transform: translate(-100%);
+}
 
+#pass{
+  transform: translate(-12px);
+}
+
+.light{
+  filter: invert(1);
+}
+
+.dark{
+  filter: invert(0);
+}
